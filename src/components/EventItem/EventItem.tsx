@@ -47,10 +47,12 @@ const EventItem: React.FC<EventItemProps> = ({event, onClick, type = "full"}) =>
     if (type === "full") {
 
         return (
+
             <div className="item-wrapper" key={_id} onClick={onClick}>
                 <h4 className="item-wrapper_user">{isUserPost && "You created this event"}</h4>
                 <img className="item-wrapper__img"  src={img} alt={title}/>
                 <h2 className="item-wrapper__title" >{title}
+
                     {isUserPost && <>
                         <IconButton aria-label="delete" color="primary">
                             <DeleteOutlineOutlinedIcon onClick={(e) => {
@@ -97,6 +99,7 @@ const EventItem: React.FC<EventItemProps> = ({event, onClick, type = "full"}) =>
                 </div>
                 <img className="item-wrapper__img" src={img} alt={title}/>
                 <h2 className="item-wrapper__title" >{title}</h2>
+
 
 
             </div>
