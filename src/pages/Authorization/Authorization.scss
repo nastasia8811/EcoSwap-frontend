@@ -1,0 +1,146 @@
+.auth {
+  min-width: 375px;
+
+  &__background-top {
+    width: 100%;
+    height:auto;
+    position:relative;
+    display: block;
+  }
+
+  &__content-container {
+    box-sizing: border-box;
+    position: absolute;
+    background-color: #1B2A20;
+    min-width: 231px;
+    min-height: 60px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #EDEDED;
+
+    &_text1 {
+      padding-right: 10px;
+      padding-left: 10px;
+      padding-top: 10px;
+      min-width: 206px;
+      font-family: Cleopatras;
+      font-size: 24px;
+      line-height: 31.2px;
+      text-align: center;
+    }
+  }
+
+  &__background-bottom {
+    background-color: #F0EEDF;
+    min-height: 380px;
+
+    &_container {
+      max-width: 333px;
+      min-height: 100px;
+      margin-right: auto;
+      margin-left: auto;
+      font-family: Maitree, sans-serif;
+      font-weight: 400;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-size: 24px;
+      line-height: 36px;
+      padding-top: 150px;
+
+      &-span {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      &-registration {
+        background: #1B2A20;
+        color: #EDEDED;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 80px;
+      }
+    }
+  }
+
+  @media (min-width: 482px) and (max-width: 833.9px) {
+    &__background-top {
+      height: 26vh;
+    }
+
+    &__content-container {
+      min-width: 320px;
+      min-height: 118px;
+      top: 240px;
+
+      &_text1 {
+        min-height: 46px;
+        padding: 10px;
+        font-size: 48px;
+        line-height: 62.4px;
+      }
+    }
+    &__background-bottom {
+      min-height: 380px;
+
+      &_container {
+        max-width: 686px;
+        min-height: 37px;
+        padding-top: 140px;
+        top: 240px;
+
+        &-content {
+          padding: 30px;
+          font-size: 16px;
+          line-height: 26.4px;
+        }
+
+        &-registration {
+          margin-right: 40px;
+          margin-left: 40px;
+          margin-bottom: 80px;
+        }
+      }
+    }
+  }
+  @media (min-width: 834px) {
+    &__background-top {
+      height: 39vh;
+    }
+
+    &__content-container {
+      min-width: 444px;
+      min-height: 118px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &_text1 {
+        padding: 10px;
+        font-size: 64px;
+        line-height: 70.46px;
+      }
+    }
+    &__background-bottom {
+      min-height: 380px;
+
+      &_container {
+        max-width: 683px;
+        min-height: 102px;
+        padding-top: 160px;
+
+        &-content {
+          padding: 30px;
+          font-size: 18px;
+          line-height: 29.7px;
+        }
+
+        &-registration {
+          margin-right: 40px;
+          margin-left: 40px;
+          margin-bottom: 110px;
+        }
+      }
+    }
+  }
+}
+
