@@ -1,0 +1,20 @@
+
+.eventPage{
+  &__img{
+    min-width: 100%;
+    height:auto;
+  }
+  &__container{
+    &-title{}
+    &-date{}
+    &-available{}
+    &-city{}
+    &-img{
+      max-width: 100%;
+      height:auto;
+    }
+    &-description{}
+  }
+  @media (min-width: 482px) and (max-width: 995.9px) {}
+  @media (min-width: 996px) {}
+}

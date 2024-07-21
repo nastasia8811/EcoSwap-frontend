@@ -1,0 +1,47 @@
+.form-registration {
+  justify-content: center;
+  min-width: 300px;
+  padding: 60px 35px 40px;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+
+  &__grid_wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+margin-bottom: 30px;
+    &__input {
+      padding: 0 30px;
+      outline: none;
+      border: none;
+
+    }
+  }
+
+
+
+  @media (min-width: 482px) and (max-width: 996px) {
+    & {
+      min-width: 400px;
+
+      &__input {
+        padding: 0 30px;
+        outline: none;
+        border: none;
+
+      }
+    }
+  }
+
+    @media (min-width: 996.9px) {
+      & {
+        min-width: 900px;
+
+        &__grid_wrapper {
+          grid-template-columns: 1fr 1fr;
+          column-gap: 30px;
+        }
+      }
+    }
+
+}

@@ -1,0 +1,28 @@
+
+.breadcrumbs__wrapper {
+  padding-top: 80px;
+  padding-left: 25px;
+}
+
+.breadcrumbs__link {
+  text-decoration: none;
+  font-size: 14px;
+  color: #75758a;
+  cursor: pointer;
+  font-weight: 400;
+
+  &::after {
+    content: '/';
+    display: inline-block;
+    position: relative;
+    margin: 0 4px;
+  }
+
+  &:last-child::after {
+    content: '';
+  }
+
+  &:hover {
+    color: #1b2a20;
+  }
+}
