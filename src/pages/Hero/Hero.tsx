@@ -2,6 +2,7 @@ import {Box, Container} from '@mui/material';
 import './Hero.scss';
 import {Link} from "react-router-dom";
 import ImageCarousel from '../../components/ImageCarousel/ImageCarousel';
+
 import Button from '@mui/material/Button';
 import { ThemeProvider } from '@mui/material/styles';
 import {theme} from '../../helpers/mui_theme'
@@ -13,6 +14,7 @@ const Hero = () => {
 
     return (
         <Box className="hero">
+
             <Container maxWidth="xl">
                 <img className="hero__background-top" src={container_top} alt='nature'/>
 
@@ -39,6 +41,7 @@ const Hero = () => {
                 <Box className="hero__carousel">
                     <h2 className="hero__carousel-title">Join our events</h2>
                     <ImageCarousel/>
+
                     <ThemeProvider theme={theme}>
                         <Grid container justifyContent="center" >
                     <Button className="hero__carousel-register" color="primary" variant="contained" style={{ marginTop: '30px', marginBottom: '30px' }}>
@@ -48,6 +51,7 @@ const Hero = () => {
                     </ThemeProvider>
                 </Box>
             </Container>
+
         </Box>
     )
 }

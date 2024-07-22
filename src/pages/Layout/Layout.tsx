@@ -1,3 +1,4 @@
+
 import { Box } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -14,11 +15,14 @@ const Layout = () => {
     const dispatch = useDispatch<ThunkDispatch<any, any, Action>>();
     const token = useSelector(selectorLoginToken);
 
+
     useEffect(()=>{
        if (token){
         dispatch(actionToken(token))
+
        }
      },[]);
+
 
     useEffect(() => {
 
@@ -26,6 +30,7 @@ const Layout = () => {
             dispatch<object>(getUserApi());
         }
     }, [token, dispatch]);
+
 
     return (
         <Box display="flex" sx={{ flexDirection: 'column', minHeight: '100vh' }}>

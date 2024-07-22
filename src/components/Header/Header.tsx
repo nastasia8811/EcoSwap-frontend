@@ -9,9 +9,10 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+
 import {actionResetState, actionToken, sendApiLogin} from "../../reducers";
 
-
+//
 const Header = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,6 +26,7 @@ const Header = () => {
         dispatch(actionResetState(null));
         setIsMenuOpen(false);
     };
+
 
     return (
         <header className="header">
@@ -44,8 +46,10 @@ const Header = () => {
                         <NavLink to="/events" className="header__wrapper-menu-item" onClick={() => setIsMenuOpen(false)}>
                             Events
                         </NavLink>
+
                         <NavLink to="/authorization" className="header__wrapper-menu-item" onClick={handleLogout}>
                             {isUserAuthorized._id ? <LoginOutlinedIcon />: <AccountCircleOutlinedIcon/>}
+
                         </NavLink>
 
                     </Box>

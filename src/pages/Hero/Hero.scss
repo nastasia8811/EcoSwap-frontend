@@ -73,6 +73,7 @@
       line-height: 31px;
     }
     &-register{
+
       &-text{
         color: #EDEDED;
         cursor: pointer;
@@ -85,12 +86,14 @@
       &-text:hover{
         color:#8BA993;
       }
+
     }
   }
 
   @media (min-width: 482px) and (max-width: 833.9px) {
 
     &__content-container {
+
 
       top: 170px;
       &_text1{
@@ -123,18 +126,22 @@
     }
     &__carousel{
       &-title{
+
         padding-top: 30px;
         padding-bottom: 20px;
+
         font-size: 24px;
         line-height: 36px;
       }
       &-register{
+
         &-text{
           font-size: 18px;
           line-height: 30px;
           padding: 10px;
         }
       }
+
     }
   }
   @media (min-width: 834px) {
@@ -180,6 +187,7 @@
       padding: 30px;
       &-title{
         padding-top: 40px;
+
         padding-bottom: 40px;
         font-size: 48px;
         line-height: 60px;
@@ -189,6 +197,7 @@
           font-size: 24px;
           line-height: 26px;
         }
+
       }
     }
     }
