@@ -35,40 +35,6 @@ const router = createBrowserRouter([
         element: <Authorization />,
       },
 
-      // {
-      //     path: 'tests',
-      //     element: <TestPage />,
-      // },
-      // {
-      //     path: 'tests/:id',
-      //     element: <ItemTestPage />,
-      //
-      //     children: [
-      //         {
-      //             index: true,
-      //             element: <SelectionTest />,
-      //         },
-      //         {
-      //             path: ':categoryId',
-      //             element: <TestListPage />,
-      //             loader: loaderTests,
-      //         },
-      //     ],
-      // },
-      // {
-      //     path: 'dashboard',
-      //     element: <Dashboard />,
-      //     children: [
-      //         {
-      //             index: true,
-      //             element: <UserInfo />,
-      //         },
-      //         {
-      //             path: 'statistics',
-      //             element: <TestResults />,
-      //         },
-      //     ],
-      // },
     ],
   },
 ]);
