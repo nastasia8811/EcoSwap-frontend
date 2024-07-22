@@ -2,7 +2,7 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import { Container, ToggleButton} from '@mui/material';
-// , ToggleButton}
+
 import './EventPage.scss';
 import axios from "axios"
 // @ts-ignore
@@ -49,10 +49,7 @@ const params = useParams()
         }
     }, []);
 
-    // if (!event) {
-    //     return <div>Event not found</div>;
-    //добавити лоадер
-    // }
+
 
     return (
         <>

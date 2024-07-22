@@ -9,14 +9,25 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import {actionResetState, actionToken} from "../../reducers";
 
+import {actionResetState, actionToken, sendApiLogin} from "../../reducers";
 
+//
 const Header = () => {
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     //@ts-ignore
-    const isUserAuthorized = useSelector((state) => state.login.userData)
-    const dispatch = useDispatch()
+    const isUserAuthorized = useSelector((state) => state.login.userData);
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        dispatch(actionToken(null));
+        dispatch(actionResetState(null));
+        setIsMenuOpen(false);
+    };
+
+
     return (
         <header className="header">
             <Container maxWidth="xl">
@@ -35,15 +46,10 @@ const Header = () => {
                         <NavLink to="/events" className="header__wrapper-menu-item" onClick={() => setIsMenuOpen(false)}>
                             Events
                         </NavLink>
-                        <NavLink to="/authorization" className="header__wrapper-menu-item"
-                                 onClick={() => {
-                                     localStorage.removeItem('token');
-                                     dispatch(actionToken(null));
-                                     dispatch(actionResetState(null))
-                                     setIsMenuOpen(false);
-                                 }}>
 
-                            {isUserAuthorized._id ? <LoginOutlinedIcon/> : <AccountCircleOutlinedIcon/>}
+                        <NavLink to="/authorization" className="header__wrapper-menu-item" onClick={handleLogout}>
+                            {isUserAuthorized._id ? <LoginOutlinedIcon />: <AccountCircleOutlinedIcon/>}
+
                         </NavLink>
 
                     </Box>

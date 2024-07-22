@@ -3,27 +3,18 @@ import './Hero.scss';
 import {Link} from "react-router-dom";
 import ImageCarousel from '../../components/ImageCarousel/ImageCarousel';
 
-
+import Button from '@mui/material/Button';
+import { ThemeProvider } from '@mui/material/styles';
+import {theme} from '../../helpers/mui_theme'
 // @ts-ignore
 import container_top from './img/container_top.jpg'
+import Grid from '@mui/material/Grid';
 
-// const theme: Theme = createTheme({
-//     components: {
-//         MuiContainer: {
-//             styleOverrides: {
-//                 root: {
-//                     maxWidth: '1800px', // Set your custom maxWidth value here
-//                 },
-//             },
-//         },
-//     },
-// });
 const Hero = () => {
 
     return (
-
         <Box className="hero">
-            {/*<ThemeProvider theme={theme}>*/}
+
             <Container maxWidth="xl">
                 <img className="hero__background-top" src={container_top} alt='nature'/>
 
@@ -51,10 +42,16 @@ const Hero = () => {
                     <h2 className="hero__carousel-title">Join our events</h2>
                     <ImageCarousel/>
 
-                    <Link className="hero__carousel-register" to="/events">Register events</Link>
+                    <ThemeProvider theme={theme}>
+                        <Grid container justifyContent="center" >
+                    <Button className="hero__carousel-register" color="primary" variant="contained" style={{ marginTop: '30px', marginBottom: '30px' }}>
+                        <Link className="hero__carousel-register-text" to="/events">Register events</Link>
+                    </Button>
+                        </Grid>
+                    </ThemeProvider>
                 </Box>
             </Container>
-            {/*//</ThemeProvider>*/}
+
         </Box>
     )
 }

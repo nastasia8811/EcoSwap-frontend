@@ -13,13 +13,7 @@ import {selectorGetEvents} from "../../selectors";
 const ImageCarousel: React.FC = () => {
     const eventsArray = useSelector(selectorGetEvents);
     const dispatch = useDispatch()
-    // const settings = {
-    //     dots: true,
-    //     infinite: true,
-    //     speed: 500,
-    //     slidesToShow: 1,
-    //     slidesToScroll: 1
-    // };
+
     useEffect(()=>{
         // @ts-ignore
         dispatch(getEvents())
