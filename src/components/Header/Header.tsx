@@ -10,9 +10,8 @@ import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
-import {actionResetState, actionToken, sendApiLogin} from "../../reducers";
+import {actionResetState, actionToken} from "../../reducers";
 
-//
 const Header = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
