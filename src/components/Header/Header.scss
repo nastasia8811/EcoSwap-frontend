@@ -1,19 +1,17 @@
 .header{
   min-width: 375px;
-
-  //z-index: 1000;
-  //width: 100%;
-  //background: #fff;
-  //border-bottom: 1px solid #ddd;
+  z-index: 1000;
+  width: 100%;
+  background: #283D3B;
+  border-bottom: 1px solid #ddd;
+  position: relative;
   &__wrapper {
     display: flex;
     min-height: 48px;
     background-color: #283D3B;
     align-items: center;
     justify-content: space-between;
-
     padding: 10px 20px;
-
 
     &-logo {
       cursor: pointer;
@@ -31,22 +29,26 @@
       text-align: left;
       color: #8BA993;
     }
-
     &-menu{
       display: none;
-
-      //
-      //flex-direction: column;
-      //align-items: center;
-      //position: absolute;
-      //top: 100%;
-      //right: 0;
-      //background: #fff;
-      //box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      //z-index: 10;
-
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      top: 100%;
+      background: #283D3B;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid #ddd;
+    &.open {
+      display: flex;
+    }
       &-item{
         align-items: center;
+
+        border-top: 1px solid #8BA993;
+        width: 100%;
 
         padding-right: 15px;
         color: #EDEDED;
@@ -59,13 +61,10 @@
         cursor:pointer;
       }
 
-
     }
     &-burger_btn{
       display: block;
       cursor: pointer;
-
-      position: relative;
 
     }
   }
@@ -75,7 +74,6 @@
       height: 160px;
       align-items: center;
       justify-content: space-evenly;
-
       padding: 10px 10px;
 
       &-logo{
@@ -97,8 +95,6 @@
           margin-bottom: 5px;
         }
 
-
-
       &-burger_btn{
         display: block;
       }
@@ -118,10 +114,20 @@
         }
       }
       &-menu{
-
         display: flex;
-
+        flex-direction: row;
+        align-items: flex-end;
+        top:auto;
+        background: none;
+        box-shadow: none;
+        z-index:0;
+        left: auto;
+        width: auto;
+        border-bottom: none;
+        position: static;
         &-item{
+          border-top: none;
+          width:max-content;
           padding-right: 55px;
           font-weight: 400;
           font-size: 18px;
