@@ -1,37 +1,24 @@
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import {Box, Container,Button} from '@mui/material';
 import './Events.scss';
-
 import React, {useEffect} from 'react';
 import EventCreate from '../EventCreate/EventCreate';
 import  {useState} from 'react';
-//import { useNavigate} from 'react-router-dom';
 // @ts-ignore
 import events from "./img/events.jpg";
 import {useSelector, useDispatch} from "react-redux";
-
 import { selectorGetEvents} from '../../selectors';
 import EventItem from "../../components/EventItem/EventItem";
 import {getEvents,actionGetOneEventData, initialState} from "../../reducers/event.reducer";
-// import {selectLoginUserData} from "../../selectors";
+import {theme} from '../../helpers/mui_theme';
+import { ThemeProvider } from '@mui/material/styles';
 
-
-// const theme = createTheme({
-//     palette: {
-//         primary: lightGreen,
-//
-//     },
-// });
-// interface EventsProps {
-//     closeModalCreateEvent: () => void;
-// }
 
 const Events: React.FC = () => {
 
     const [isModalAuthOpen, setIsModalAuthOpen] = useState(false);
-    //const navigate = useNavigate();
-const dispatch = useDispatch()
-const eventsArray = useSelector(selectorGetEvents);
+    const dispatch = useDispatch()
+    const eventsArray = useSelector(selectorGetEvents);
     const toggleModalAuth = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         
@@ -64,8 +51,8 @@ const eventsArray = useSelector(selectorGetEvents);
                     <BreadCrumbs linksArray={[{ link:'/events', text: 'Events' }]} />
                     <h2 className="events-container__wrapper-title">Events</h2>
                     <div className="events-container__wrapper-plus">
-                        {typeValue === 'full' &&  <Button className="events-container__wrapper-plus-button" variant="outlined"
-                                                          onClick={(event) => toggleModalAuth(event)}>Add Event</Button>}
+                        {typeValue === 'full' &&  <ThemeProvider theme={theme}> <Button className="events-container__wrapper-plus-button" variant="outlined" color="primary"
+                                                          onClick={(event) => toggleModalAuth(event)}>Add Event</Button>   </ThemeProvider>}
 
                         {isModalAuthOpen && <EventCreate closeModalCreateEvent = {closeModalCreateEvent} />}
                     </div>

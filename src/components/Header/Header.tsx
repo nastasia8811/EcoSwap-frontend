@@ -7,10 +7,10 @@ import {useSelector, useDispatch} from 'react-redux';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-
 import {actionResetState, actionToken} from "../../reducers";
+import {theme} from '../../helpers/mui_theme';
+import { ThemeProvider } from '@mui/material/styles';
 
 const Header = () => {
 
@@ -36,7 +36,9 @@ const Header = () => {
                             {logo}
                         </Link>
                     </Box>
-                    <Box className="header__wrapper-name">EcoSwap</Box>
+                        <Link to="/" className="header__wrapper-name">
+                            EcoSwap
+                        </Link>
                     <Box className={`header__wrapper-menu ${isMenuOpen ? 'open' : ''}`}>
                         <NavLink to="/about" className="header__wrapper-menu-item" onClick={() => setIsMenuOpen(false)}>
                             About us
@@ -48,13 +50,13 @@ const Header = () => {
 
                         <NavLink to="/authorization" className="header__wrapper-menu-item" onClick={handleLogout}>
                             {isUserAuthorized._id ? <LoginOutlinedIcon />: <AccountCircleOutlinedIcon/>}
-
                         </NavLink>
-
                     </Box>
+                    <ThemeProvider theme={theme}>
                     <Box className="header__wrapper-burger_btn" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                        {isMenuOpen ? <CloseOutlinedIcon/> : <MenuOutlinedIcon/>}
+                        {isMenuOpen ? <CloseOutlinedIcon color="secondary"/> : <MenuOutlinedIcon color="secondary"/>}
                     </Box>
+                    </ThemeProvider>
                 </Box>
             </Container>
         </header>
