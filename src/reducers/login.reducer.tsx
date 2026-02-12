@@ -67,7 +67,7 @@ const loginSlice: Slice<LoginState> = createSlice({
         actionUserData: (state, action: PayloadAction<UserDataObject>) => {
             state.userData = action.payload;
         },
-        actionLoginMassageError: (state, action: PayloadAction<string>) => {
+        actionLoginMessageError: (state, action: PayloadAction<string>) => {
             state.loginMessageError = action.payload;
         },
         actionLoginError: (state, action: PayloadAction<string>) => {
@@ -82,7 +82,7 @@ export const {
     actionToken,
     actionUserData,
     actionLoginError,
-    actionLoginMassageError,
+    actionLoginMessageError,
     actionResetState
 } = loginSlice.actions;
 
@@ -103,12 +103,10 @@ export const sendApiLogin = (value: { login: string; password: string }) => (dis
             return response;
         })
         .catch((error) => {
-            console.error('Login error:', error);
             if (error.response) {
-                console.error('Error response data:', error.response.data);
-                dispatch(actionLoginMassageError(error.response.data.message));
+                dispatch(actionLoginMessageError(error.response.data.message));
             } else {
-                dispatch(actionLoginMassageError('An unknown error occurred.'));
+                dispatch(actionLoginMessageError('An unknown error occurred.'));
             }
             dispatch(actionLoginError(true));
         }).finally(() => {
@@ -122,9 +120,7 @@ export const getUserApi = () => async (dispatch: (arg0: { payload: any; type: `$
     .then(customer =>{
         dispatch(actionUserData(customer.data))
     })
-    .catch(error => {
-        console.error('Get user error:', error);
-    });
+    .catch(() => {});
 
 };
 

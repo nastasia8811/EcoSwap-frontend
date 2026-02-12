@@ -12,7 +12,7 @@ import loginReducer, {
     actionToken,
     actionUserData,
     actionLoginError,
-    actionLoginMassageError,
+    actionLoginMessageError,
     sendApiLogin,
     getUserApi,
     actionResetState
@@ -46,7 +46,7 @@ export {
     actionToken,
     actionUserData,
     actionLoginError,
-    actionLoginMassageError,
+    actionLoginMessageError,
     sendApiLogin,
     getUserApi,
     eventReducer,

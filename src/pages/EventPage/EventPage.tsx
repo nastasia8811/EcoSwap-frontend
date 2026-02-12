@@ -5,9 +5,8 @@ import { Container, ToggleButton} from '@mui/material';
 
 import './EventPage.scss';
 import axios from "axios"
-// @ts-ignore
 import background from './img/background.jpg';
-import {GET_EVENTS} from '../../endpoints';
+import {GET_EVENT} from '../../endpoints';
 import {useState, useEffect} from 'react';
 
 interface Person {
@@ -39,15 +38,13 @@ const params = useParams()
 
     useEffect(() =>{
         if (params.id){
-            axios.get(GET_EVENTS)
+            axios.get(GET_EVENT + params.id)
                 .then((response) => {
                     setEvent(response.data);
                 })
-                .catch((error) => {
-                    console.error('Error fetching events:', error);
-                });
+                .catch(() => {});
         }
-    }, []);
+    }, [params.id]);
 
 
 

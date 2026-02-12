@@ -21,7 +21,7 @@ const Layout = () => {
         dispatch(actionToken(token))
 
        }
-     },[]);
+     },[token, dispatch]);
 
 
     useEffect(() => {

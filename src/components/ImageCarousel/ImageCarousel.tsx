@@ -8,16 +8,16 @@ import './ImageCarousel.scss'
 import {EventData, getEvents} from "../../reducers/event.reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {selectorGetEvents} from "../../selectors";
+import {AppDispatch} from "../../store";
 
 
 const ImageCarousel: React.FC = () => {
     const eventsArray = useSelector(selectorGetEvents);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
 
     useEffect(()=>{
-        // @ts-ignore
         dispatch(getEvents())
-    },[])
+    },[dispatch])
 
         const settings = {
             dots: true,

@@ -22,7 +22,7 @@ export const selectorRegistrationMessageError = (state: AppState) => state.regis
 export const selectorLoginIsLoading = (state: AppState) => state.login.loginPageIsLoading;
 
 //export const selectLoginUserData = (state: AppState) => state.login.userData;
-export const selectorMassageError = (state: AppState) => state.login.loginMessageError;
+export const selectorMessageError = (state: AppState) => state.login.loginMessageError;
 export const selectorLoginModalError = (state: AppState) => state.login.modalError;
 export const selectorLoginToken = (state: AppState) => state.login.loginToken;
 

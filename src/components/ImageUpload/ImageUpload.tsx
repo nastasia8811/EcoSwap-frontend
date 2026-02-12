@@ -13,17 +13,20 @@ const ImageUpload:React.FC = () => {
     };
 
 
-    const handleUpload = (e:any) => {
+    const handleUpload = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
+
+        const cloudName = process.env.REACT_APP_CLOUDINARY_CLOUD_NAME || 'dequtvxxc';
+        const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET || 'reDiPresetName';
 
         Promise.all(
             media.map((file) => {
                 const formData = new FormData();
                 formData.append('file', file);
-                formData.append('upload_preset', 'reDiPresetName');
-                formData.append('cloud_name', 'dequtvxxc');
+                formData.append('upload_preset', uploadPreset);
+                formData.append('cloud_name', cloudName);
 
-                return fetch(`https://api.cloudinary.com/v1_1/dequtvxxc/image/upload`, {
+                return fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
                     method: 'POST',
                     body: formData
                 })
@@ -32,14 +35,9 @@ const ImageUpload:React.FC = () => {
             })
         )
             .then(mediaUrls => {
-                // Update state or perform other actions with mediaUrls
-
                 sessionStorage.setItem('imgUrl',mediaUrls[0])
             })
-            .catch(error => {
-                // Handle errors here
-                console.error('Upload error:', error);
-            });
+            .catch(() => {});
     };
 
     return (

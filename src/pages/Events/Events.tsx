@@ -1,10 +1,8 @@
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import {Box, Container,Button} from '@mui/material';
 import './Events.scss';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import EventCreate from '../EventCreate/EventCreate';
-import  {useState} from 'react';
-// @ts-ignore
 import events from "./img/events.jpg";
 import {useSelector, useDispatch} from "react-redux";
 import { selectorGetEvents} from '../../selectors';
@@ -12,16 +10,17 @@ import EventItem from "../../components/EventItem/EventItem";
 import {getEvents,actionGetOneEventData, initialState} from "../../reducers/event.reducer";
 import {theme} from '../../helpers/mui_theme';
 import { ThemeProvider } from '@mui/material/styles';
+import {RootState, AppDispatch} from "../../store";
 
 
 const Events: React.FC = () => {
 
     const [isModalAuthOpen, setIsModalAuthOpen] = useState(false);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<AppDispatch>()
     const eventsArray = useSelector(selectorGetEvents);
     const toggleModalAuth = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
-        
+
         setIsModalAuthOpen(!isModalAuthOpen);
         dispatch(actionGetOneEventData({...initialState.formData}))
     };
@@ -31,15 +30,13 @@ const Events: React.FC = () => {
     }
 
 
-    // @ts-ignore
-    const userData = useSelector((state)=>state.login.userData)
+    const userData = useSelector((state: RootState)=>state.login.userData)
 
     useEffect(() =>{
 
-            // @ts-ignore
         dispatch(getEvents())
 
-    }, []);
+    }, [dispatch]);
 
     const typeValue = localStorage.getItem('token')? 'full': 'short'
     return(

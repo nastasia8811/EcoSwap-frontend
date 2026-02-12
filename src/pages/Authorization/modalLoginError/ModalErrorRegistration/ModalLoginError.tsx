@@ -2,14 +2,14 @@ import Modal from '../../../../components/Modal/Modal';
 import { useState } from 'react';
 import './ModalLoginError.scss';
 import { useSelector } from "react-redux";
-import { selectorMassageError } from "../../../../selectors";
+import { selectorMessageError } from "../../../../selectors";
 
 interface ModalErrorRegistrationProps {
   closeErrorModal: () => void;
 }
 
 const ModalLoginError: React.FC<ModalErrorRegistrationProps> = ({ closeErrorModal }) => {
-  const closeModalError = useSelector(selectorMassageError);
+  const closeModalError = useSelector(selectorMessageError);
   //const navigate = useNavigate();
   const [isModalAuthOpen, setIsModalAuthOpen] = useState(false);
 
